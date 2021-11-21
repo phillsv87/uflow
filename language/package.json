@@ -6,6 +6,7 @@
     "repository": {
         "url": "https://github.com/phillsv87/uflow"
     },
+    "publisher": "IYIO",
     "engines": {
         "vscode": "^1.39.0"
     },
