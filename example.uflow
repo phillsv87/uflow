@@ -101,6 +101,9 @@ FLOW TakeATrip
 
     The user is now some how in the air
 
+    [backend]
+    The users successful landing count is incremented in the database
+
     About 100 hours later the user lands safely at Katmandu
 
     # the -- syntax is used to mark a step as removed from the flow

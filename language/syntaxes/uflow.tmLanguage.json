@@ -15,6 +15,7 @@
                 { "include": "#operator" },
                 { "include": "#list" },
                 { "include": "#var" },
+                { "include": "#context" },
                 { "include": "#strike" },
                 { "include": "#comment" },
                 { "include": "#markdown" },
@@ -32,12 +33,16 @@
                 }
             }
         },
+        "context": {
+            "match": "\\[.*]",
+            "name": "keyword.control"
+        },
         "operator": {
             "match": "AND|OR|NOT",
             "name": "keyword.control"
         },
         "var": {
-            "match": "\\$[A-Za-z]\\w*",
+            "match": "\\$[A-Za-z][A-Za-z0-9.\\[\\]'\"]*",
             "name": "variable"
         },
         "strike": {
