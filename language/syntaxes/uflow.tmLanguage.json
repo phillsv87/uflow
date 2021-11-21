@@ -45,7 +45,7 @@
             "name": "markup.deleted"
         },
         "control": {
-            "match": "IF|ELSE|END|WHEN|EXIT|FLOW|GOTO|RUN|LABEL|DO|WHILE",
+            "match": "IF|ELSE|END|WHEN|EXIT|FLOW|GOTO|RUN|LABEL|DO|WHILE|SWITCH",
             "name": "keyword.control"
         },
         "control-named": {

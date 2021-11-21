@@ -2,7 +2,7 @@
     "name": "uflow",
     "displayName": "UFlow",
     "description": "Uflow is a simple non-executable human readable language used to describe user flows",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": {
         "url": "https://github.com/phillsv87/uflow"
     },
