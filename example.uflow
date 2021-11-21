@@ -19,20 +19,29 @@ ELSE
 
     The user returns to the example.uflow file and now sees syntax highlighting
 
+END
+
 
 The user is inspired by the simple human readable syntax that allows a complex user flow
 to be describe in plain text and is trackable with GIT.
 
 The user vows to use UFlow for all future projects until the end of time.
 
+IF the user is tired of programming
+    RUN SpendThatMoney
+
+RUN TakeATrip
+
 EXIT
+
+
 
 
 FLOW NewVsCodeUser
 
     The user is curious as to what a .uflow file is
 
-    WHEN the user operation system is
+    WHEN the user operation system IS
 
         Macos
             Do some kind of magical gesture on their track pad and safari comes flying in
@@ -46,9 +55,57 @@ FLOW NewVsCodeUser
         OTHER
             How did they install VSCode?
 
+    END
+
     
     Now that the users has a web browser open the search for "What is a .uflow file"
 
     The user sees a link to the UFlow vscode extension page
 
     The user follows the link and reads about how to install the UFlow extension
+
+END
+
+
+FLOW SpendThatMoney
+
+    The user receives a random amount of money between $50 to $100 and puts it in his $wallet
+
+    WHILE $wallet is not empty
+
+        The user pays $1 for a cheese burger using his $wallet
+
+    END
+
+    The user regrests eating too many cheese buggers
+
+END
+
+
+FLOW TakeATrip
+
+    The user is preparing to fly his plane to Katmandu
+
+    He must first
+    - Check his fuel level
+    - Rest his arms, it's going to be a long flight
+    - Tighten the propellor
+
+
+    The user starts to taxi down the run way and is now ready to take off
+
+    The user now
+    1. Hammers down on the throttle
+    2. Pulls back on the stick
+    3. Closes his eyes
+
+    The user is now some how in the air
+
+    About 100 hours later the user lands safely at Katmandu
+
+    # the -- syntax is used to mark a step as removed from the flow
+    --The user refuels his plane
+
+    The user has a beer with Bob Seger
+
+END

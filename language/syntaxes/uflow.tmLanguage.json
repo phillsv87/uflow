@@ -9,17 +9,47 @@
 
         "expression": {
             "patterns": [
+                { "include": "#control-logic" },
+                { "include": "#control-named" },
                 { "include": "#control" },
-                { "include": "#named-control" },
-                { "include": "#comment" }
+                { "include": "#operator" },
+                { "include": "#list" },
+                { "include": "#var" },
+                { "include": "#strike" },
+                { "include": "#comment" },
+                { "include": "#markdown" },
+                { "include": "#embeds" }
             ]
         },
-        "control": {
-            "match": "IF|ELSE|END|WHEN|EXIT",
+        "list": {
+            "match": "^\\s*(\\-|\\d+\\.)\\s+(.*)",
+            "captures": {
+                "1":{
+                    "name":"markup.bold"
+                },
+                "2":{
+                    "patterns": [{ "include": "#expression" }]
+                }
+            }
+        },
+        "operator": {
+            "match": "AND|OR|NOT",
             "name": "keyword.control"
         },
-        "named-control": {
-            "match": "(FLOW|GOTO|RUN)\\s*(\\w+)(.*)",
+        "var": {
+            "match": "\\$[A-Za-z]\\w*",
+            "name": "variable"
+        },
+        "strike": {
+            "match": "^\\s*--.*",
+            "name": "markup.deleted"
+        },
+        "control": {
+            "match": "IF|ELSE|END|WHEN|EXIT|FLOW|GOTO|RUN|LABEL|DO|WHILE",
+            "name": "keyword.control"
+        },
+        "control-named": {
+            "match": "(FLOW|GOTO|RUN|LABEL)\\s*(\\w+)(.*)",
             "captures": {
                 "1":{
                     "name":"keyword.control"
@@ -32,9 +62,341 @@
                 }
             }
         },
+        "control-logic": {
+            "match": "(IF|ELSE\\s+IF|WHEN)(.*)(THEN|IS)",
+            "captures": {
+                "1":{
+                    "name":"keyword.control"
+                },
+                "2":{
+                    "patterns": [{ "include": "#expression" }]
+                },
+                "3":{
+                    "name":"keyword.control"
+                }
+            }
+        },
         "comment": {
             "match": "#.*",
             "name": "comment"
+        },
+
+        "markdown": {
+            "begin": "OPEN_MARKDOWN",
+            "end": "CLOSE_MARKDOWN",
+            "beginCaptures": {
+                "0":{
+                    "name":"entity.name.namespace"
+                }
+            },
+            "endCaptures": {
+                "0":{
+                    "name":"entity.name.namespace"
+                }
+            },
+            "contentName":"meta.embedded.block.markdown",
+            "patterns": [ { "include": "text.html.markdown" } ]
+        },
+
+
+        "embeds": {
+            "patterns": [
+                { "include": "#embedded_block_html" },
+                { "include": "#embedded_block_frontmatter" },
+                { "include": "#embedded_block_css" },
+                { "include": "#embedded_block_ini" },
+                { "include": "#embedded_block_java" },
+                { "include": "#embedded_block_lua" },
+                { "include": "#embedded_block_makefile" },
+                { "include": "#embedded_block_perl" },
+                { "include": "#embedded_block_r" },
+                { "include": "#embedded_block_ruby" },
+                { "include": "#embedded_block_php" },
+                { "include": "#embedded_block_sql" },
+                { "include": "#embedded_block_vs_net" },
+                { "include": "#embedded_block_xml" },
+                { "include": "#embedded_block_xsl" },
+                { "include": "#embedded_block_yaml" },
+                { "include": "#embedded_block_dosbatch" },
+                { "include": "#embedded_block_clojure" },
+                { "include": "#embedded_block_coffee" },
+                { "include": "#embedded_block_c" },
+                { "include": "#embedded_block_cpp" },
+                { "include": "#embedded_block_diff" },
+                { "include": "#embedded_block_dockerfile" },
+                { "include": "#embedded_block_go" },
+                { "include": "#embedded_block_groovy" },
+                { "include": "#embedded_block_pug" },
+                { "include": "#embedded_block_javascript" },
+                { "include": "#embedded_block_json" },
+                { "include": "#embedded_block_jsonc" },
+                { "include": "#embedded_block_less" },
+                { "include": "#embedded_block_objc" },
+                { "include": "#embedded_block_scss" },
+                { "include": "#embedded_block_perl6" },
+                { "include": "#embedded_block_powershell" },
+                { "include": "#embedded_block_python" },
+                { "include": "#embedded_block_rust" },
+                { "include": "#embedded_block_scala" },
+                { "include": "#embedded_block_shellscript" },
+                { "include": "#embedded_block_typescript" },
+                { "include": "#embedded_block_typescriptreact" },
+                { "include": "#embedded_block_csharp" },
+                { "include": "#embedded_block_fsharp" }
+            ]
+        },
+
+        "embedded_block_html":{
+            "begin": "```\\s*html",
+            "end": "```",
+            "contentName":"text.html.basic",
+            "patterns": [ { "include": "text.html.basic" } ]
+        },
+        "embedded_block_frontmatter":{
+            "begin": "```\\s*(yaml|yml)",
+            "end": "```",
+            "contentName":"meta.embedded.block.frontmatter",
+            "patterns": [ { "include": "source.yaml" } ]
+        },
+        "embedded_block_css":{
+            "begin": "```\\s*css",
+            "end": "```",
+            "contentName":"meta.embedded.block.css",
+            "patterns": [ { "include": "source.css" } ]
+        },
+        "embedded_block_ini":{
+            "begin": "```\\s*ini",
+            "end": "```",
+            "contentName":"meta.embedded.block.ini",
+            "patterns": [ { "include": "source.ini" } ]
+        },
+        "embedded_block_java":{
+            "begin": "```\\s*java",
+            "end": "```",
+            "contentName":"meta.embedded.block.java",
+            "patterns": [ { "include": "source.java" } ]
+        },
+        "embedded_block_lua":{
+            "begin": "```\\s*lua",
+            "end": "```",
+            "contentName":"meta.embedded.block.lua",
+            "patterns": [ { "include": "source.lua" } ]
+        },
+        "embedded_block_makefile":{
+            "begin": "```\\s*makefile",
+            "end": "```",
+            "contentName":"meta.embedded.block.makefile",
+            "patterns": [ { "include": "source.makefile" } ]
+        },
+        "embedded_block_perl":{
+            "begin": "```\\s*perl",
+            "end": "```",
+            "contentName":"meta.embedded.block.perl",
+            "patterns": [ { "include": "source.perl" } ]
+        },
+        "embedded_block_r":{
+            "begin": "```\\s*r",
+            "end": "```",
+            "contentName":"meta.embedded.block.r",
+            "patterns": [ { "include": "source.r" } ]
+        },
+        "embedded_block_ruby":{
+            "begin": "```\\s*ruby",
+            "end": "```",
+            "contentName":"meta.embedded.block.ruby",
+            "patterns": [ { "include": "source.ruby" } ]
+        },
+        "embedded_block_php":{
+            "begin": "```\\s*php",
+            "end": "```",
+            "contentName":"meta.embedded.block.php",
+            "patterns": [ { "include": "source.php" }, { "include": "text.html.basic" } ]
+        },
+        "embedded_block_sql":{
+            "begin": "```\\s*sql",
+            "end": "```",
+            "contentName":"meta.embedded.block.sql",
+            "patterns": [ { "include": "source.sql" } ]
+        },
+        "embedded_block_vs_net":{
+            "begin": "```\\s*vs_net",
+            "end": "```",
+            "contentName":"meta.embedded.block.vs_net",
+            "patterns": [ { "include": "source.asp.vb.net" } ]
+        },
+        "embedded_block_xml":{
+            "begin": "```\\s*xml",
+            "end": "```",
+            "contentName":"meta.embedded.block.xml",
+            "patterns": [ { "include": "text.xml" } ]
+        },
+        "embedded_block_xsl":{
+            "begin": "```\\s*xsl",
+            "end": "```",
+            "contentName":"meta.embedded.block.xsl",
+            "patterns": [ { "include": "text.xml.xsl" } ]
+        },
+        "embedded_block_yaml":{
+            "begin": "```\\s*yaml",
+            "end": "```",
+            "contentName":"meta.embedded.block.yaml",
+            "patterns": [ { "include": "source.yaml" } ]
+        },
+        "embedded_block_dosbatch":{
+            "begin": "```\\s*bat",
+            "end": "```",
+            "contentName":"meta.embedded.block.dosbatch",
+            "patterns": [ { "include": "source.batchfile" } ]
+        },
+        "embedded_block_clojure":{
+            "begin": "```\\s*clojure",
+            "end": "```",
+            "contentName":"meta.embedded.block.clojure",
+            "patterns": [ { "include": "source.clojure" } ]
+        },
+        "embedded_block_coffee":{
+            "begin": "```\\s*coffee",
+            "end": "```",
+            "contentName":"meta.embedded.block.coffee",
+            "patterns": [ { "include": "source.coffee" } ]
+        },
+        "embedded_block_c":{
+            "begin": "```\\s*c",
+            "end": "```",
+            "contentName":"meta.embedded.block.c",
+            "patterns": [ { "include": "source.c" } ]
+        },
+        "embedded_block_cpp":{
+            "begin": "```\\s*cpp",
+            "end": "```",
+            "contentName":"meta.embedded.block.cpp",
+            "patterns": [ { "include": "source.cpp" } ]
+        },
+        "embedded_block_diff":{
+            "begin": "```\\s*diff",
+            "end": "```",
+            "contentName":"meta.embedded.block.diff",
+            "patterns": [ { "include": "source.diff" } ]
+        },
+        "embedded_block_dockerfile":{
+            "begin": "```\\s*dockerfile",
+            "end": "```",
+            "contentName":"meta.embedded.block.dockerfile",
+            "patterns": [ { "include": "source.dockerfile" } ]
+        },
+        "embedded_block_go":{
+            "begin": "```\\s*go",
+            "end": "```",
+            "contentName":"meta.embedded.block.go",
+            "patterns": [ { "include": "source.go" } ]
+        },
+        "embedded_block_groovy":{
+            "begin": "```\\s*groovy",
+            "end": "```",
+            "contentName":"meta.embedded.block.groovy",
+            "patterns": [ { "include": "source.groovy" } ]
+        },
+        "embedded_block_pug":{
+            "begin": "```\\s*(jade|pug)",
+            "end": "```",
+            "contentName":"meta.embedded.block.pug",
+            "patterns": [ { "include": "text.pug" } ]
+        },
+        "embedded_block_javascript":{
+            "begin": "```\\s*(js|jsx|javascript|es6|mjs|cjs)",
+            "end": "```",
+            "contentName":"meta.embedded.block.javascript",
+            "patterns": [ { "include": "source.js" } ]
+        },
+        "embedded_block_json":{
+            "begin": "```\\s*json",
+            "end": "```",
+            "contentName":"meta.embedded.block.json",
+            "patterns": [ { "include": "source.json" } ]
+        },
+        "embedded_block_jsonc":{
+            "begin": "```\\s*jsonc",
+            "end": "```",
+            "contentName":"meta.embedded.block.jsonc",
+            "patterns": [ { "include": "source.json.comments" } ]
+        },
+        "embedded_block_less":{
+            "begin": "```\\s*less",
+            "end": "```",
+            "contentName":"meta.embedded.block.less",
+            "patterns": [ { "include": "source.css.less" } ]
+        },
+        "embedded_block_objc":{
+            "begin": "```\\s*objc",
+            "end": "```",
+            "contentName":"meta.embedded.block.objc",
+            "patterns": [ { "include": "source.objc" } ]
+        },
+        "embedded_block_scss":{
+            "begin": "```\\s*scss",
+            "end": "```",
+            "contentName":"meta.embedded.block.scss",
+            "patterns": [ { "include": "source.css.scss" } ]
+        },
+        "embedded_block_perl6":{
+            "begin": "```\\s*(perl6|p6|pl6|pm6|nqp)",
+            "end": "```",
+            "contentName":"meta.embedded.block.perl6",
+            "patterns": [ { "include": "source.perl.6" } ]
+        },
+        "embedded_block_powershell":{
+            "begin": "```\\s*(powershell|ps1)",
+            "end": "```",
+            "contentName":"meta.embedded.block.powershell",
+            "patterns": [ { "include": "source.powershell" } ]
+        },
+        "embedded_block_python":{
+            "begin": "```\\s*(python|py)",
+            "end": "```",
+            "contentName":"meta.embedded.block.python",
+            "patterns": [ { "include": "source.python" } ]
+        },
+        "embedded_block_rust":{
+            "begin": "```\\s*rust",
+            "end": "```",
+            "contentName":"meta.embedded.block.rust",
+            "patterns": [ { "include": "source.rust" } ]
+        },
+        "embedded_block_scala":{
+            "begin": "```\\s*scala",
+            "end": "```",
+            "contentName":"meta.embedded.block.scala",
+            "patterns": [ { "include": "source.scala" } ]
+        },
+        "embedded_block_shellscript":{
+            "begin": "```\\s*(shell|sh|bash|zsh|bashrc|bash_profile|bash_login|profile|bash_logout)",
+            "end": "```",
+            "contentName":"meta.embedded.block.shellscript",
+            "patterns": [ { "include": "source.shell" } ]
+        },
+        "embedded_block_typescript":{
+            "begin": "```\\s*(typescript|ts)",
+            "end": "```",
+            "contentName":"meta.embedded.block.typescript",
+            "patterns": [ { "include": "source.ts" } ]
+        },
+        "embedded_block_typescriptreact":{
+            "begin": "```\\s*(typescriptreact|tsx)",
+            "end": "```",
+            "contentName":"meta.embedded.block.typescriptreact",
+            "patterns": [ { "include": "source.tsx" } ]
+        },
+        "embedded_block_csharp":{
+            "begin": "```\\s*csharp",
+            "end": "```",
+            "contentName":"meta.embedded.block.csharp",
+            "patterns": [ { "include": "source.cs" } ]
+        },
+        "embedded_block_fsharp":{
+            "begin": "```\\s*fsharp",
+            "end": "```",
+            "contentName":"meta.embedded.block.fsharp",
+            "patterns": [ { "include": "source.fsharp" } ]
         }
     }
 }
