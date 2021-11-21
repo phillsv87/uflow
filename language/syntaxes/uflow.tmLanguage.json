@@ -1,0 +1,40 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name":"UFlow",
+    "scopeName": "source.uflow",
+    "patterns": [
+        { "include": "#expression" }
+    ],
+    "repository": {
+
+        "expression": {
+            "patterns": [
+                { "include": "#control" },
+                { "include": "#named-control" },
+                { "include": "#comment" }
+            ]
+        },
+        "control": {
+            "match": "IF|ELSE|END|WHEN|EXIT",
+            "name": "keyword.control"
+        },
+        "named-control": {
+            "match": "(FLOW|GOTO|RUN)\\s*(\\w+)(.*)",
+            "captures": {
+                "1":{
+                    "name":"keyword.control"
+                },
+                "2":{
+                    "name":"entity.name.type.class"
+                },
+                "3":{
+                    "patterns": [{ "include": "#expression" }]
+                }
+            }
+        },
+        "comment": {
+            "match": "#.*",
+            "name": "comment"
+        }
+    }
+}

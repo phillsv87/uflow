@@ -1,0 +1,25 @@
+{
+    "name": "uflow",
+    "displayName": "UFlow",
+    "description": "Uflow is a simple non-executable human readable language used to describe user flows",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.39.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "uflow",
+            "aliases": ["UFlow", "uflow"],
+            "extensions": [".uflow"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "uflow",
+            "scopeName": "source.uflow",
+            "path": "./syntaxes/uflow.tmLanguage.json"
+        }]
+    }
+}

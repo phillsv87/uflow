@@ -1,0 +1,54 @@
+# Example User Flow
+
+User opens VSCode
+
+The user sees a file a file named example.uflow  and opens it
+
+IF the user has the UFlow extension installed
+
+    The user sees syntax highlighting
+
+ELSE
+
+    IF the user is new to VSCode and doesn't know about extensions
+        RUN NewVsCodeUser
+
+    The user opens the extensions panel and searches for UFlow
+
+    The user sees the the UFlow extension and installs it
+
+    The user returns to the example.uflow file and now sees syntax highlighting
+
+
+The user is inspired by the simple human readable syntax that allows a complex user flow
+to be describe in plain text and is trackable with GIT.
+
+The user vows to use UFlow for all future projects until the end of time.
+
+EXIT
+
+
+FLOW NewVsCodeUser
+
+    The user is curious as to what a .uflow file is
+
+    WHEN the user operation system is
+
+        Macos
+            Do some kind of magical gesture on their track pad and safari comes flying in
+
+        Windows
+            Clicks on the Chrome icon in the task bar because no one uses Edge
+
+        Linux
+            May vary based on distro
+
+        OTHER
+            How did they install VSCode?
+
+    
+    Now that the users has a web browser open the search for "What is a .uflow file"
+
+    The user sees a link to the UFlow vscode extension page
+
+    The user follows the link and reads about how to install the UFlow extension

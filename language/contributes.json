@@ -1,0 +1,17 @@
+{
+  "contributes": {
+    "languages": [
+      {
+        "id": "uflow",
+        "extensions": [".uflow"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "uflow",
+        "scopeName": "source.uflow",
+        "path": "./syntaxes/uflow.tmGrammar.json"
+      }
+    ]
+  }
+}
