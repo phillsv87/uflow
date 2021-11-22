@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>scott@iyio.io</string>
+	<key>contactName</key>
+	<string>Scott Vance</string>
+	<key>description</key>
+	<string>Uflow is a simple non-executable human readable language used to describe user flows</string>
+	<key>name</key>
+	<string>UFlow</string>
+	<key>uuid</key>
+	<string>18D752CE-FB69-4F46-B2EB-BB89F6B164D3</string>
+</dict>
+</plist>

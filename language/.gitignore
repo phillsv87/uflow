@@ -1,1 +1,4 @@
 *.vsix
+*.zip
+*.gz
+*.tmbundle
