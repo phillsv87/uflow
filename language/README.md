@@ -10,40 +10,69 @@ Markdown.
 ## Keywords
 
 ### IF
-Start of an if statement line directly followed by a statement that can be read as being true or false.
-Optionally the THEN keyword can be added to the end of an IF statement line
-
-
-<div style="background-color:#111;padding:1em;border-radius:0.5em;margin-bottom:3em">
-<span style="font-weight:bold;color:#B58CC0">IF</span> you are reading this <span style="font-weight:bold;color:#B58CC0">THEN</span><br/>
-&nbsp;&nbsp;&nbsp;Give this repo a star<br/>
-<span style="font-weight:bold;color:#B58CC0">END</span>
-</div>
+Start of an if statement directly followed by a statement that can be read as being true or false.
+If the statement is read as being true then the the following statements should be read until
+the **END** or **ELSE** keyboard is encountered.
+<br/>
+<br/>
 
 ### THEN
-An optional ending of an IF statement
+An optional ending of an **IF** statement
+<br/>
+<br/>
 
 ### ELSE
+Used in combination with an **IF** statement. If an **IF** statement is false then the statements
+following **ELSE** should be read.
+<br/>
+<br/>
 
 ### END
+Ends a group of statements.
+<br/>
+<br/>
 
-### WHEN
+![IF statement](img/if.png)
+
+### WHEN, SWITCH
+Something
+<br/>
+<br/>
 
 ### EXIT
+Something
+<br/>
+<br/>
 
 ### FLOW
+Something
+<br/>
+<br/>
 
 ### GOTO
+Something
+<br/>
+<br/>
 
 ### RUN
+Something
+<br/>
+<br/>
 
 ### LABEL
+Something
+<br/>
+<br/>
 
 ### DO
+Something
+<br/>
+<br/>
 
 ### WHILE
-
-### SWITCH
+Something
+<br/>
+<br/>
 
 
 ## FAQs

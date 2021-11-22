@@ -1,0 +1,17 @@
+A user wants to open a web browser
+
+WHEN the user's operation system IS
+
+    ~ Macos
+        They do some kind of magical gesture on their track pad and safari comes flying in
+
+    ~ Windows
+        They click on the Chrome icon in the task bar because no one uses Edge
+
+    ~ Linux
+        May vary based on distro
+
+    ~ ALL OTHER CASES
+        They do what they have to do to survive
+
+END

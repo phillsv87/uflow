@@ -43,16 +43,16 @@ FLOW NewVsCodeUser
 
     WHEN the user operation system IS
 
-        Macos
+        ~ Macos
             Do some kind of magical gesture on their track pad and safari comes flying in
 
-        Windows
+        ~ Windows
             Clicks on the Chrome icon in the task bar because no one uses Edge
 
-        Linux
+        ~ Linux
             May vary based on distro
 
-        OTHER
+        ~ ALL OTHER CASES
             How did they install VSCode?
 
     END
