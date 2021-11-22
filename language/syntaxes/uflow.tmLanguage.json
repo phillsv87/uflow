@@ -12,10 +12,10 @@
                 { "include": "#control-logic" },
                 { "include": "#control-named" },
                 { "include": "#control" },
-                { "include": "#operator" },
                 { "include": "#list" },
                 { "include": "#var" },
                 { "include": "#context" },
+                { "include": "#case" },
                 { "include": "#strike" },
                 { "include": "#comment" },
                 { "include": "#markdown" },
@@ -37,9 +37,15 @@
             "match": "\\[.*]",
             "name": "keyword.control"
         },
-        "operator": {
-            "match": "AND|OR|NOT",
-            "name": "keyword.control"
+        "case": {
+            "match": "^\\s*(~|CASE\\s+)(.*)",
+            "captures": {
+                "1":{"name":"keyword.control"},
+                "2":{
+                    "name":"string",
+                    "patterns": [{"include": "#control"}]
+                }
+            }
         },
         "var": {
             "match": "\\$[A-Za-z][A-Za-z0-9.\\[\\]'\"]*",
@@ -50,7 +56,7 @@
             "name": "markup.deleted"
         },
         "control": {
-            "match": "IF|ELSE|END|WHEN|EXIT|FLOW|GOTO|RUN|LABEL|DO|WHILE|SWITCH",
+            "match": "IF|THEN|ELSE|END|WHEN|EXIT|FLOW|GOTO|RUN|LABEL|DO|WHILE|SWITCH|CASES|CASE|BREAK|ALL|ANY|OTHER|DEFAULT|AND|OR|NOT",
             "name": "keyword.control"
         },
         "control-named": {
