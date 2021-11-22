@@ -1,114 +1,121 @@
 # Example User Flow
 
-User opens VSCode
+Jeff opens VSCode
 
-The user sees a file a file named example.uflow  and opens it
+He then sees a file named example.uflow and opens it
 
-IF the user has the UFlow extension installed
+IF Jeff has the UFlow extension installed THEN
 
-    The user sees syntax highlighting
+    he sees syntax highlighting and can easily read and understand the logical structure
 
 ELSE
 
-    IF the user is new to VSCode and doesn't know about extensions
+    Jeff doesn't see any syntax highlighting but can see the file is neatly indented and
+    it kind of looks like a programming mixed with normal english
+
+    IF Jeff is new to VSCode and doesn't know about extensions
         RUN NewVsCodeUser
 
-    The user opens the extensions panel and searches for UFlow
+    Jeff opens the extensions panel and searches for UFlow
 
-    The user sees the the UFlow extension and installs it
-
-    The user returns to the example.uflow file and now sees syntax highlighting
+    He sees the the UFlow extension and installs it
 
 END
 
 
-The user is inspired by the simple human readable syntax that allows a complex user flow
-to be describe in plain text and is trackable with GIT.
+Jeff is inspired by the simple human readable syntax. It allows him to write complex user flows
+in plan text and his user flows are now trackable with Git.
 
-The user vows to use UFlow for all future projects until the end of time.
+Jeff vows to use UFlow for all future projects until the end of time.
 
-IF the user is tired of programming
-    RUN SpendThatMoney
+IF Jeff is tried of programming THEN
 
-RUN TakeATrip
+    RUN TakeATrip
+
+    IF Jeff is huger after taking a long trip
+        RUN EatSomeBuggers 
+
+END
+
+Jeff calls it a night and goes to bed
 
 EXIT
 
 
 
-
 FLOW NewVsCodeUser
 
-    The user is curious as to what a .uflow file is
+    Jeff is curious about what .uflow files are decides to search the web 
 
-    WHEN the user operation system IS
+    WHEN Jeff uses
 
         ~ Macos
-            Do some kind of magical gesture on their track pad and safari comes flying in
+            He does some kind of magical gesture on his track pad and safari comes flying 
+            out of nowhere. He must be a wizard.
 
         ~ Windows
-            Clicks on the Chrome icon in the task bar because no one uses Edge
+            He clicks on the Chrome icon in the task bar. He doesn't use Edge and never will.
 
         ~ Linux
             May vary based on distro
 
         ~ ALL OTHER CASES
-            How did they install VSCode?
+            He find a way to survive
 
     END
-
     
-    Now that the users has a web browser open the search for "What is a .uflow file"
+    Now that Jeff has a web browser open he searches for "What are .uflow files"
 
-    The user sees a link to the UFlow vscode extension page
+    He sees a link to the UFlow vscode extension page and clicks on it
 
-    The user follows the link and reads about how to install the UFlow extension
-
-END
-
-
-FLOW SpendThatMoney
-
-    The user receives a random amount of money between $50 to $100 and puts it in his $wallet
-
-    WHILE $wallet is not empty
-
-        The user pays $1 for a cheese burger using his $wallet
-
-    END
-
-    The user regrests eating too many cheese buggers
+    Jeff then reads about how to install the UFlow extension
 
 END
 
 
 FLOW TakeATrip
 
-    The user is preparing to fly his plane to Katmandu
+    Jeff is preparing to fly his plane to Katmandu
 
     He must first
     - Check his fuel level
-    - Rest his arms, it's going to be a long flight
-    - Tighten the propellor
+    - Rest his arms, it's going to be a long flight 😆
+    - Windup up the propeller
 
+    After checking of everything off his list Jeff starts to taxi down the run way
 
-    The user starts to taxi down the run way and is now ready to take off
-
-    The user now
-    1. Hammers down on the throttle
+    He is ready to take off
+    1. He hammers down on the throttle
     2. Pulls back on the stick
-    3. Closes his eyes
+    3. And closes his eyes
 
-    The user is now some how in the air
+    Jeff is now somehow in the air
+
+    About 100 million hours later Jeff lands safely in Katmandu
 
     [backend]
-    The users successful landing count is incremented in the database
+    Jeff's successful landing count is incremented in the database
 
-    About 100 hours later the user lands safely at Katmandu
+    # the -- syntax is used to mark a step as removed
+    -- He then refuels his plane
 
-    # the -- syntax is used to mark a step as removed from the flow
-    --The user refuels his plane
+    He then grabs a beer with Bob Seger
 
-    The user has a beer with Bob Seger
+    Jeff remembers he forgot to put the toilot seat down for his girlfriend and fly's back home
+
+END
+
+
+FLOW EatSomeBuggers
+
+    Jeff finds somewhere between $50 to $100 and puts it in his $wallet
+
+    WHILE his $wallet is not empty
+
+        He takes $1 out of his $wallet and pays for a cheese burger
+
+    END
+
+    After eating way too many cheese buggers Jeff get sick 🤮
 
 END
